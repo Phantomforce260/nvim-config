@@ -1,4 +1,7 @@
 
+vim.g.mapleader = ";" 
+vim.keymap.set("n", "<leader>q", "<CMD>Oil<CR>");
+
 -- Synchronizes the system clipboard with Neovim's clipboard
 vim.opt.clipboard = "unnamedplus"
 
