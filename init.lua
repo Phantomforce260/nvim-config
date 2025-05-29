@@ -1,5 +1,4 @@
 vim.g.mapleader = ";" 
---vim.keymap.set("n", "<leader>q", "<CMD>Oil<CR>")
 vim.keymap.set("n", "<leader>w", "<C-w>l")
 
 vim.keymap.set("n", "<leader>q", function()
@@ -29,21 +28,6 @@ vim.opt.virtualedit = "block"
 
 -- See commands in nvim/lua/vim-optiond.lua
 require("vim-options")
-
-vim.api.nvim_create_augroup("OnFileOpened", { clear = true })
-
-vim.api.nvim_create_autocmd("VimEnter", {
-    group = "OnFileOpened",
-    callback = function()
-        local args = vim.fn.argv()
-        if #args == 1 then
-            local stat = vim.loop.fs_stat(args[1])
-            if stat and stat.type == "file" then
-                vim.cmd("Neotree filesystem reveal left")
-            end
-        end
-    end,
-})
 
 vim.api.nvim_create_augroup("OnOilOpenedFile", { clear = true })
 
