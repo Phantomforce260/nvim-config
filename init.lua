@@ -1,16 +1,3 @@
-vim.g.mapleader = ";" 
-vim.keymap.set("n", "<leader>w", "<C-w>l")
-
-vim.keymap.set("n", "<leader>q", function()
-    local ft = vim.bo.filetype
-
-    if ft ~= "oil" then
-        vim.cmd("Neotree close")
-    end
-
-    vim.cmd("Oil")
-end, { desc = "Escape to Oil and hide Neo-tree" })
-
 -- Synchronizes the system clipboard with Neovim's clipboard
 vim.opt.clipboard = "unnamedplus"
 
@@ -53,47 +40,17 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end
 })
 
-vim.api.nvim_set_keymap('n', '<leader>w', '', {
-  noremap = true,
-  silent = true,
-  callback = function()
-    local buf = vim.api.nvim_get_current_buf()
-    local buf_ft = vim.api.nvim_buf_get_option(buf, 'filetype')
-
-    -- Neo-tree buffers usually have filetype 'neo-tree'
-    if buf_ft == 'neo-tree' then
-      -- Neo-tree is focused, switch to previous window
-      vim.cmd('wincmd p')
-    else
-      -- Focus Neo-tree window if it exists, otherwise open it
-      local found_neo_tree_win = nil
-      for _, win in ipairs(vim.api.nvim_list_wins()) do
-        local win_buf = vim.api.nvim_win_get_buf(win)
-        local win_buf_ft = vim.api.nvim_buf_get_option(win_buf, 'filetype')
-        if win_buf_ft == 'neo-tree' then
-          found_neo_tree_win = win
-          break
-        end
-      end
-
-      if found_neo_tree_win then
-        vim.api.nvim_set_current_win(found_neo_tree_win)
-      end
-    end
-  end
-})
-
 vim.api.nvim_create_user_command('Q', function()
-  -- Close all neo-tree windows
-  for _, win in ipairs(vim.api.nvim_list_wins()) do
-    local buf = vim.api.nvim_win_get_buf(win)
-    local ft = vim.api.nvim_buf_get_option(buf, 'filetype')
-    if ft == 'neo-tree' then
-      vim.api.nvim_win_close(win, true)
-    end
-  end
-  -- Then quit current window
-  vim.cmd('q')
+    -- Close all neo-tree windows
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+        local buf = vim.api.nvim_win_get_buf(win)
+        local ft = vim.api.nvim_buf_get_option(buf, 'filetype')
+        if ft == 'neo-tree' then
+              vim.api.nvim_win_close(win, true)
+            end
+        end
+    -- Then quit current window
+    vim.cmd('q')
 end, {})
 
 --vim.api.nvim_create_user_command('Q', close_neo_tree_and_quit, {})

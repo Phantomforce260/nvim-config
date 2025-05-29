@@ -9,43 +9,33 @@ return {
         "williamboman/mason-lspconfig.nvim",
         dependencies = { "mason.nvim" },
         config = function()
-            --[[require("mason-lspconfig").setup({
-                ensure_installed = {
-                    "lua_ls", 
-                    "clangd", 
-                    "cmake", 
-                    "cssls", 
-                    "html"
+            -- setup lsp capabilities
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
+            capabilities.textDocument.completion.completionItem = {
+                documentationFormat = { "markdown", "plaintext" },
+                snippetSupport = true,
+                preselectSupport = true,
+                insertReplaceSupport = true,
+                labelDetailsSupport = true,
+                deprecatedSupport = true,
+                commitCharactersSupport = true,
+                tagSupport = {
+                    valueSet = { 1 }
+                },
+                resolveSupport = {
+                    properties = {
+                        "documentation",
+                        "detail",
+                        "additionalTextEdits"
+                    }
                 }
-            })]]--
-
-        -- setup lsp capabilities
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities.textDocument.completion.completionItem = {
-          documentationFormat = { "markdown", "plaintext" },
-          snippetSupport = true,
-          preselectSupport = true,
-          insertReplaceSupport = true,
-          labelDetailsSupport = true,
-          deprecatedSupport = true,
-          commitCharactersSupport = true,
-          tagSupport = {
-            valueSet = { 1 }
-          },
-          resolveSupport = {
-            properties = {
-              "documentation",
-              "detail",
-              "additionalTextEdits"
             }
-          }
-        }
 
-        require("mason-lspconfig").setup()
-        require("mason-lspconfig").setup_handlers({
-            function(server_name)
-                require("lspconfig")[server_name].setup({
-                        capabilities = capabilities
+            require("mason-lspconfig").setup()
+            require("mason-lspconfig").setup_handlers({
+                function(server_name)
+                    require("lspconfig")[server_name].setup({
+                            capabilities = capabilities
                     })
                 end,
             })
