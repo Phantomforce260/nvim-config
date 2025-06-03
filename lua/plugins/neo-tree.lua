@@ -1,5 +1,9 @@
 return {
-    "nvim-neo-tree/neo-tree.nvim",
+    "nvim-neo-tree/neo-tree.nvim", 
+    cmd = "Neotree",  -- Only load when :Neotree is run
+    keys = {
+        { "<leader>e", ":Neotree toggle<CR>", desc = "Toggle Neotree" },
+    },
     branch = "v3.x",
     dependencies = {
         "nvim-lua/plenary.nvim",
@@ -11,6 +15,7 @@ return {
         require("neo-tree").setup({
             --close_if_last_window = false,
             enable_git_status = true,
+            open_on_setup = false,
         })
     end
 }

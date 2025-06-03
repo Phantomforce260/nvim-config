@@ -28,6 +28,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
         if stat and stat.type == "file" then
             -- Check if previous buffer was Oil
             local previous_buf = vim.fn.bufnr("#")
+            print(previous_buf)
             if previous_buf > 0 and vim.api.nvim_buf_is_valid(previous_buf) then
                 local ft = vim.api.nvim_buf_get_option(previous_buf, "filetype")
                 if ft == "oil" then
@@ -36,6 +37,15 @@ vim.api.nvim_create_autocmd("BufEnter", {
                     end)
                 end
             end
+        end
+    end
+})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        local arg = vim.fn.argv(0)
+        if arg and vim.fn.isdirectory(arg) == 1 then
+            require("oil").open()
         end
     end
 })
