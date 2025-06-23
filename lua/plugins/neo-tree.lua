@@ -13,9 +13,13 @@ return {
     config = function()
         vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>', {})
         require("neo-tree").setup({
-            --close_if_last_window = false,
             enable_git_status = true,
             open_on_setup = false,
+            filesystem = {
+                filtered_items = {
+                    visible = true,
+                }
+            }
         })
     end
 }
