@@ -37,6 +37,10 @@ require("lazy").setup("plugins")
 
 -------------------------------------------------------
 
+local themes = {"catpuccin", "slate", "habamax", "lunaperche" }
+
+local currentTheme = 0
+
 -- Sets the colorscheme to a built-in.
 -- The default is catppuccin
--- vim.cmd.colorscheme("slate")
+vim.cmd.colorscheme(themes[currentTheme])

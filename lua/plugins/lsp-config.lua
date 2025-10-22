@@ -1,5 +1,9 @@
 return {
     {
+        "nvim-java/nvim-java",
+        require('java').setup()
+    },
+    {
         "williamboman/mason.nvim",
         config = function()
             require("mason").setup()
@@ -38,6 +42,20 @@ return {
                             capabilities = capabilities
                     })
                 end,
+
+                ["intelephense"] = function()
+                  require("lspconfig").intelephense.setup {
+                    settings = {
+                      intelephense = {
+                        environment = {
+                          includePaths = { "/var/www" },
+                        },
+                      },
+                    },
+                  }
+                end,
+
+                require('lspconfig').jdlts.setup({})
             })
         end
     },
