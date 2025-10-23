@@ -1,9 +1,5 @@
 return {
     {
-        "nvim-java/nvim-java",
-        require('java').setup()
-    },
-    {
         "williamboman/mason.nvim",
         config = function()
             require("mason").setup()
@@ -53,9 +49,7 @@ return {
                       },
                     },
                   }
-                end,
-
-                require('lspconfig').jdlts.setup({})
+                end
             })
         end
     },
