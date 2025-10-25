@@ -1,26 +1,30 @@
-local themes = { 
+local themes = {
     -- Supports transparency
-    { 
+    {
         "catppuccin",
         "dracula",
     },
-    { 
+    {
         "gruvbox",
         "gruvbox_dark",
     },
-    { 
+    {
         "tokyonight",
         "nightfly",
     },
-
-    -- Does not support transparency
-    { 
+    {
         "nord",
         "nord",
     },
+    {
+        "mellow",
+        "seoul256"
+    }
 }
 -- Change the index to switch themes
-local themeIndex = 3
+
+math.randomseed(os.time())
+local themeIndex = math.random(#themes)
 
 local vimTheme = themes[themeIndex][1] or "catppuccin"
 local lualineTheme = themes[themeIndex][2] or "dracula"

@@ -1,4 +1,4 @@
-function quit_to_oil(oil)
+local function quit_to_oil(oil)
     -- Close all other buffers
     local current_buf = vim.api.nvim_get_current_buf()
     for _, buf in ipairs(vim.api.nvim_list_bufs()) do
@@ -11,11 +11,11 @@ function quit_to_oil(oil)
     oil.open()
 end
 
-function focus_neotree()
+local function focus_neotree()
     vim.cmd.Neotree("focus")
 end
 
-function up_dir()
+local function up_dir()
     local ft = vim.bo.filetype
     if ft == "oil" then
         vim.cmd("Oil")

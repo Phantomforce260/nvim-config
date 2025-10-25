@@ -2,6 +2,8 @@
 vim.g.mapleader = ";"
 require("config.options")
 
+ActiveThemes = require("config.active-themes")
+
 -- Set up lazy.nvim
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -27,8 +29,7 @@ require("lazy").setup({
     }
 })
 
-local activeThemes = require("config.active-themes")
-vim.cmd.colorscheme(activeThemes.vimTheme)
+vim.cmd.colorscheme(ActiveThemes.vimTheme)
 
 -- Set up keymaps last to allow plugins to override
 require("config.keymaps")

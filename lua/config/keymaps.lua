@@ -29,7 +29,7 @@ local leader_binds = function()
         },
 
         -- aq: Quit all buffers and open Oil
-        QuitToOil = { 
+        QuitToOil = {
             leader .. "aq",
             commands.quit_to_oil,
             "Quit all and open Oil"
@@ -120,7 +120,7 @@ local movement_binds = {
 -- where `rhs` can be a function or a string command. This loop uses normal
 -- mode for all mappings; if you need different modes you can extend the
 -- structure (see suggestions below).
-function set_binds(binds)
+local function set_binds(binds)
     for _, map in pairs(binds) do
         local lhs = map[1]
         local rhs = map[2]
