@@ -13,9 +13,11 @@ return {
 
     -- Configure Lualine with a specific theme
     config = function()
+        local activeThemes = require("config.active-themes")
+
         require("lualine").setup({
             options = {
-                theme = "dracula"
+                theme = activeThemes.lualineTheme,
             },
         })
     end

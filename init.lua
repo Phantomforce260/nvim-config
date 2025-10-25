@@ -1,5 +1,6 @@
+-- Configure vim options and keymaps
+vim.g.mapleader = ";"
 require("config.options")
-require("config.keymaps")
 
 -- Set up lazy.nvim
 
@@ -21,13 +22,16 @@ require("lazy").setup({
     spec = {
         { import = "plugins" },
         { import = "themes" },
+
+        { import = "lsp" },
     }
 })
 
-local themes = { "catppuccin", "gruvbox", "nord", "tokyonight" }
-local currentTheme = themes[0]  -- Change the index to switch themes
+local activeThemes = require("config.active-themes")
+vim.cmd.colorscheme(activeThemes.vimTheme)
 
-vim.cmd.colorscheme "catppuccin"  -- Default theme
+-- Set up keymaps last to allow plugins to override
+require("config.keymaps")
 
 -- Note: lazy-lock.json
 
