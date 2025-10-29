@@ -38,3 +38,20 @@ vim.cmd("syntax enable")                -- Enables syntax highlighting
 vim.cmd("set whichwrap+=<,>,[,],h,l")   -- Allows the cursor to move to the next/previous line when hitting these keys
 
 vim.o.background = "dark"
+
+vim.api.nvim_create_autocmd("Colorscheme", {
+    pattern = "*",
+    callback = function()
+        vim.cmd [[
+            hi Normal guibg=none ctermbg=none
+            hi NonText guibg=none ctermbg=none
+            hi NormalNC guibg=none ctermbg=none
+            hi SignColumn guibg=none ctermbg=none
+            hi VertSplit guibg=none ctermbg=none
+            hi StatusLine guibg=none ctermbg=none
+            hi TabLine guibg=none ctermbg=none
+            hi LineNr guibg=none ctermbg=none
+            hi EndOfBuffer guibg=none ctermbg=none
+        ]]
+    end,
+})

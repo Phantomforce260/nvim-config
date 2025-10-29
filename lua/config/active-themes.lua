@@ -1,5 +1,6 @@
 local themes = {
 
+    -- Neovim themes
     {
         "catppuccin",
         "dracula",
@@ -31,7 +32,29 @@ local themes = {
     {
         "rose-pine",
         "horizon"
-    }
+    },
+
+    -- Vim themes
+    {
+        "slate",
+        "ayu_dark"
+    },
+    {
+        "unokai",
+        "ayu_dark"
+    },
+    {
+        "retrobox",
+        "gruvbox_dark"
+    },
+    {
+        "habamax",
+        "nightfly"
+    },
+    {
+        "lunaperche",
+        "nightfly"
+    },
 }
 -- Change the index to switch themes
 
