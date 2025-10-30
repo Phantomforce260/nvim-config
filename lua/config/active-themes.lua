@@ -57,12 +57,14 @@ local themes = {
     },
 }
 -- Change the index to switch themes
+local useVimThemes = false
+local randomTheme = false
 
 math.randomseed(os.time())
-local themeIndex = math.random(#themes)
+local themeIndex = randomTheme and math.random(useVimThemes and #themes or #themes - 5) or 1
 
-local vimTheme = themes[themeIndex][1] or "catppuccin"
-local lualineTheme = themes[themeIndex][2] or "dracula"
+local vimTheme = randomTheme and themes[themeIndex][1] or "catppuccin"
+local lualineTheme = randomTheme and themes[themeIndex][2] or "auto"
 
 print("Using theme: " .. vimTheme)
 
