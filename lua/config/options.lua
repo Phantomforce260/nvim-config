@@ -39,6 +39,10 @@ vim.cmd("set whichwrap+=<,>,[,],h,l")   -- Allows the cursor to move to the next
 
 vim.o.background = "dark"
 
+vim.diagnostic.config({
+    virtual_text = true
+})
+
 vim.api.nvim_create_autocmd("Colorscheme", {
     pattern = "*",
     callback = function()
