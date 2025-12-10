@@ -40,14 +40,6 @@ local themes = {
         "ayu_dark"
     },
     {
-        "unokai",
-        "ayu_dark"
-    },
-    {
-        "retrobox",
-        "gruvbox_dark"
-    },
-    {
         "habamax",
         "nightfly"
     },
@@ -55,6 +47,16 @@ local themes = {
         "lunaperche",
         "nightfly"
     },
+
+    -- Vim 9.1+ themes
+    {
+        "retrobox",
+        "gruvbox_dark"
+    },
+    {
+        "unokai",
+        "ayu_dark"
+    }
 }
 -- Change the index to switch themes
 local useVimThemes = false

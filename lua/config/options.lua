@@ -32,7 +32,7 @@ opt.encoding = "utf-8"                  -- Sets default encoding to UTF-8
 opt.showmatch = true                    -- Highlights matching parentheses
 
 opt.undofile = true                     -- Enables persistent undo
-opt.signcolumn = "yes"                   -- Always shows the sign column to prevent text shifting
+opt.signcolumn = "yes"                  -- Always shows the sign column to prevent text shifting
 
 vim.cmd("syntax enable")                -- Enables syntax highlighting
 vim.cmd("set whichwrap+=<,>,[,],h,l")   -- Allows the cursor to move to the next/previous line when hitting these keys

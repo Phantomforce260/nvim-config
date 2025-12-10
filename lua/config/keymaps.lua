@@ -102,7 +102,7 @@ local movement_binds = {
     -- Ctrl + Alt + [: Previous Buffer
     {"<C-A-[>", ":BufferPrevious<CR>", "Previous buffer"},
 
-    -- Ctrl + 1-0: Go to buffer 0
+    -- Ctrl + 1-0: Go to buffer #
     {"<C-1>", ":BufferGoto 1<CR>", "Go to buffer 1"},
     {"<C-2>", ":BufferGoto 2<CR>", "Go to buffer 2"},
     {"<C-3>", ":BufferGoto 3<CR>", "Go to buffer 3"},
@@ -154,7 +154,7 @@ vim.api.nvim_create_user_command(
 
 vim.api.nvim_create_user_command(
     "Q",
-    function() vim.cmd("qa") end, 
+    function() vim.cmd("q") end, 
     {}
 )
 
