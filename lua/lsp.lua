@@ -10,6 +10,12 @@ return {
         end,
     },
     {
+        "neovim/nvim-lspconfig",
+        config = function()
+            -- LSP configurations are handled in mason-lspconfig setup
+        end,
+    },
+    {
         "williamboman/mason-lspconfig.nvim",
         dependencies = { "mason.nvim" },
         config = function()
@@ -53,12 +59,6 @@ return {
                 end,
             })
         end
-    },
-    {
-        "neovim/nvim-lspconfig",
-        config = function()
-            -- LSP configurations are handled in mason-lspconfig setup
-        end,
     },
     {
         "VonHeikemen/lsp-zero.nvim",
