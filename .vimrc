@@ -29,3 +29,8 @@ colorscheme slate
 
 command W w
 command Q q
+
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[2 q"
+
+hi Normal guibg=NONE ctermbg=NONE
