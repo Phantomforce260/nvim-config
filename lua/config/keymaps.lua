@@ -60,7 +60,13 @@ local leader_binds = function()
         ToggleTerminal = {
             leader .. "ty",
             ":TermNew size=70 direction=vertical<CR>",
-            "Toggle terminal"
+            "Toggle Vertical Terminal"
+        },
+
+        ToggleHorizontal = {
+            leader .. "tu",
+            ":TermNew size=15 direction=horizontal<CR>",
+            "Toggle Horizontal Terminal"
         },
 
         -- th: Hide/Show all terminals

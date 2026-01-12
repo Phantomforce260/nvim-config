@@ -19,7 +19,6 @@ set autoindent
 
 set showmatch
 
-set undofile
 set signcolumn=yes
 
 syntax on
@@ -34,3 +33,16 @@ let &t_SI = "\e[5 q"
 let &t_EI = "\e[2 q"
 
 hi Normal guibg=NONE ctermbg=NONE
+
+" Ensure required directories exist (plug-and-play)
+for dir in ['~/.vim/backup', '~/.vim/swap', '~/.vim/undo']
+  if !isdirectory(expand(dir))
+    call mkdir(expand(dir), 'p', 0700)
+  endif
+endfor
+
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+
+set undofile
