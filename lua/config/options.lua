@@ -11,7 +11,7 @@ opt.ignorecase = true                   -- Case insensitive searching
 opt.mouse = "a"                         -- Enables mouse support in all modes
 
 opt.hlsearch = true                     -- Highlights all search results
-opt.virtualedit = "block"               -- Creates virtual spaces at the end of a line for easier Visual Block selections.
+opt.virtualedit = "block"               -- Creates virtual spaces at the end of a line for easier Visual Block selections
 
 opt.termguicolors = true                -- Enables 24-bit RGB color in the terminal
 opt.cursorline = true                   -- Highlights the line where the cursor is located
@@ -19,15 +19,13 @@ opt.cursorline = true                   -- Highlights the line where the cursor 
 opt.number = true                       -- Shows line numbers
 opt.relativenumber = true               -- Shows relative line numbers
 
-
 opt.tabstop = 4                         -- Number of spaces that a <Tab> counts for
 opt.expandtab = true                    -- Converts tabs to spaces
-opt.shiftwidth = 0                      -- Number of spaces to use for each step of (auto)indentA
+opt.shiftwidth = 0                      -- Number of spaces to use for each step of (auto)indent
 opt.softtabstop = 0                     -- Number of spaces that a <Tab> counts for while performing editing operations
 opt.smarttab = true                     -- Makes tabbing smarter
 opt.autoindent = true                   -- Enables automatic indentation
 
-opt.syntax = "on"                       -- Enables syntax highlighting
 opt.encoding = "utf-8"                  -- Sets default encoding to UTF-8
 opt.showmatch = true                    -- Highlights matching parentheses
 
