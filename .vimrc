@@ -1,3 +1,11 @@
+let mapleader = ";"
+
+colorscheme habamax           " Sets Vim colorscheme
+" Vim themes I like:
+" - slate
+" - habamax
+" - desert
+
 set splitbelow              " New horizontal splits will be below the current window
 set splitright              " New vertical splits will be to the right of the current window
 
@@ -26,8 +34,6 @@ set virtualedit=block       " Creates virtual spaces at the end of a line for ea
 
 syntax enable               " Enables syntax highlighting
 set encoding=utf-8          " Sets default encoding to UTF-8
-
-colorscheme slate           " Sets Vim colorscheme to "slate"
 
 "set wrap                   " Enable this to allow overflowing lines to wrap
 
@@ -59,3 +65,40 @@ set directory=~/.vim/swap//   " Directory for swap files (temporary files for un
 set undodir=~/.vim/undo//     " Directory for undo files (persistent undo history across sessions)
 
 set undofile                  " Enable persistent undo (save undo history to files)
+
+set laststatus=2
+set statusline=%f\ %m%r%h%w\ [%{&filetype}]\ [%l/%L]\ %p%%
+
+" Global configs for Netrw, Vim's built-in file explorer.
+let g:netrw_banner=0
+let g:netrw_liststyle=3
+let g:netrw_browse_split=0
+let g:netrw_winsize = 25
+let g:netrw_altv = 1
+
+" Keybinds to navigate Netrw
+nnoremap <leader>aq :Explore<CR>
+nnoremap <leader>w :Lexplore<CR>
+nnoremap <leader>r :Lexplore<CR>
+
+" Ctrl + h/j/k/l: move between windows
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Ctrl + Arrow keys: move between windows
+nnoremap <C-Left>  <C-w>h
+nnoremap <C-Down>  <C-w>j
+nnoremap <C-Up>    <C-w>k
+nnoremap <C-Right> <C-w>l
+
+" Terminal mode: Esc to exit to normal mode
+set termwinkey=<Esc>
+tnoremap <silent> <Esc> <C-\><C-n>
+
+nnoremap <leader>tu :terminal<CR>
+
+" Press Ctrl-P to autocomplete a keyword
+set completeopt=menuone,noinsert,noselect
+
