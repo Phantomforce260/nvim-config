@@ -1,4 +1,5 @@
 local opt = vim.opt
+local o = vim.o
 
 opt.clipboard = "unnamedplus"           -- Synchronizes the system clipboard with Neovim's clipboard
 opt.splitbelow = true                   -- New horizontal splits will be below the current window
@@ -35,7 +36,9 @@ opt.signcolumn = "yes"                  -- Always shows the sign column to preve
 vim.cmd("syntax enable")                -- Enables syntax highlighting
 vim.cmd("set whichwrap+=<,>,[,],h,l")   -- Allows the cursor to move to the next/previous line when hitting these keys
 
-vim.o.background = "dark"
+o.background = "dark"
+o.exrc = true
+o.secure = true
 
 vim.diagnostic.config({
     virtual_text = true

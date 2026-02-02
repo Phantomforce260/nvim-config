@@ -35,6 +35,9 @@ set virtualedit=block       " Creates virtual spaces at the end of a line for ea
 syntax enable               " Enables syntax highlighting
 set encoding=utf-8          " Sets default encoding to UTF-8
 
+set exrc
+set secure
+
 "set wrap                   " Enable this to allow overflowing lines to wrap
 
 " I type fast, and I have a habit of accidentally typing :W and :Q instead of :w and :q.
