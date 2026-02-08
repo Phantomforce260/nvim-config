@@ -2,6 +2,20 @@
 -- They are included here to keep all LSP-related settings centralized,
 -- so that if any changes are needed, they can be made in one place.
 
+-- Language Specific Modifications
+vim.g.ruby_recommended_style = 0
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "scss", "css", "sass" },
+  callback = function()
+    vim.bo.shiftwidth = 4
+    vim.bo.tabstop = 4
+    vim.bo.softtabstop = 4
+    vim.bo.expandtab = true
+  end,
+})
+
+-- General LSP Setup
 return {
     {
         "williamboman/mason.nvim",
@@ -57,6 +71,9 @@ return {
                         },
                     })
                 end,
+
+
+
             })
         end
     },
